@@ -13,10 +13,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      location: {
+      simpleLocation: {
         type: Sequelize.STRING,
       },
-      price: {
+      basicPrice: {
         type: Sequelize.FLOAT,
       },
       created_at: {

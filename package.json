@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "sequelize": "sequelize-cli",
-    "db:migrate": "sequelize db:migrate"
+    "db:migrate": "sequelize db:migrate",
+    "db:init": "npx sequelize-cli init"
   },
   "author": "yaratavares",
   "license": "MIT",
@@ -14,11 +15,14 @@
     "cloudinary": "~2.5.1",
     "dotenv": "~16.4.5",
     "express": "~4.21.1",
-    "pg": "~8.13.1",
-    "sequelize": "~6.37.5"
+    "joi": "~17.13.3",
+    "pg": "~8.13.1"
   },
   "devDependencies": {
+    "@sequelize/core": "~7.0.0-alpha.43",
+    "@sequelize/postgres": "~7.0.0-alpha.43",
     "@types/express": "~5.0.0",
+    "joi-to-typescript": "~4.14.0",
     "sequelize-cli": "~6.6.2",
     "ts-node": "~10.9.2",
     "typescript": "~5.7.2"

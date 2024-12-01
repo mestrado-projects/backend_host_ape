@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-     await queryInterface.createTable("apartmentsRules", {
+     await queryInterface.createTable("apartments_rules", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.TIME,
         allowNull: false,
       },
-      quantity_host: {
+      guests_quantity: {
         type: Sequelize.TIME,
         allowNull: false,
       },

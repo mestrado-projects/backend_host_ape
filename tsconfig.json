@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "CommonJS",
+    "module": "Nodenext",
     "strict": true,
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "resolveJsonModule": true,
     "types": ["node"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "experimentalDecorators": true,       
+    "emitDecoratorMetadata": true
   }
 }
