@@ -14,7 +14,7 @@ import {
   Unique,
   HasMany,
 } from "@sequelize/core/decorators-legacy";
-import { ApartmentsReviews } from "../apartments/apartmentsReviews";
+import { ApartmentsReviews } from "../apartments/apartmentsReviews.js";
 
 export class Guests extends Model<
   InferAttributes<Guests>,

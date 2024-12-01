@@ -1,12 +1,5 @@
-import sequelize from "../database/connection";
-import {
-  Apartments,
-  ApartmentsCommodities,
-  ApartmentsContacts,
-  ApartmentsDetails,
-  ApartmentsPropertySecurity,
-  ApartmentsRules,
-} from "../models";
+import sequelize from "../database/connection.js";
+import { Apartments, ApartmentsDetails } from "../models/index.js";
 
 export default class GetApartmentsRepository {
   constructor() {

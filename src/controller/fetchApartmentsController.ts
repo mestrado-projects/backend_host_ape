@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import FetchApartmentUseCase from "../useCase/fetchApartment";
+import FetchApartmentUseCase from "../useCase/fetchApartment.js";
 
 async function fetchApartmentsController(req: Request, res: Response) {
   try {

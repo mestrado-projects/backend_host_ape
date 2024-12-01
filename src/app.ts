@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
-import { Apartments } from "./models";
+import { Apartments } from "./models/index.js";
 import dotenv from "dotenv";
-import router from "./router/index.routes";
+import router from "./router/index.routes.js";
 
 dotenv.config();
 

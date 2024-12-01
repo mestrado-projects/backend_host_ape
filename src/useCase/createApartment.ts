@@ -1,4 +1,4 @@
-import CreateApartmentsRepository from "../repositories/createApartmentsRepository";
+import CreateApartmentsRepository from "../repositories/createApartmentsRepository.js";
 
 export default class CreateApartmentUseCase {
   async execute(body: any) {

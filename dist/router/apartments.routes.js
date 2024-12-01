@@ -4,15 +4,8 @@ import validateSchemaMiddleware from "../middlewares/schemaValidateMiddleware.js
 import { createApartmentSchema } from "../schemas/createApartmentSchema.js";
 import { getApartmentsController } from "../controller/getApartmentControlle.js";
 import { fetchApartmentsController } from "../controller/fetchApartmentsController.js";
-
 const apartmentsRouter = Router();
-
-apartmentsRouter.post(
-  "/apartments",
-  validateSchemaMiddleware(createApartmentSchema),
-  createApartmentsController,
-);
+apartmentsRouter.post("/apartments", validateSchemaMiddleware(createApartmentSchema), createApartmentsController);
 apartmentsRouter.get("/apartments", fetchApartmentsController);
 apartmentsRouter.get("/apartments/:id", getApartmentsController);
-
 export default apartmentsRouter;

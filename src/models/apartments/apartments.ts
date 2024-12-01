@@ -14,12 +14,12 @@ import {
   HasMany,
   HasOne,
 } from "@sequelize/core/decorators-legacy";
-import { ApartmentsCommodities } from "./apartmentsCommodities";
-import { ApartmentsRules } from "./apartmentsRules";
-import { ApartmentsPropertySecurity } from "./apartmentsPropertySecurity";
-import { ApartmentsContacts } from "./apartmentsContacts";
-import { ApartmentsReviews } from "./apartmentsReviews";
-import { ApartmentsDetails } from "./apartmentsDetails";
+import { ApartmentsCommodities } from "./apartmentsCommodities.js";
+import { ApartmentsRules } from "./apartmentsRules.js";
+import { ApartmentsPropertySecurity } from "./apartmentsPropertySecurity.js";
+import { ApartmentsContacts } from "./apartmentsContacts.js";
+import { ApartmentsReviews } from "./apartmentsReviews.js";
+import { ApartmentsDetails } from "./apartmentsDetails.js";
 
 export enum ApartmentType {
   Apartment = "Apartment",

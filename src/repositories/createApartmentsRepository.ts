@@ -1,6 +1,4 @@
-import sequelize from "../database/connection";
-import { createApartment } from "../interfaces";
-// import { createApartment } from "../interfaces";
+import sequelize from "../database/connection.js";
 import {
   Apartments,
   ApartmentsCommodities,
@@ -9,7 +7,7 @@ import {
   ApartmentsPropertySecurity,
   ApartmentsRules,
   ApartmentType,
-} from "../models";
+} from "../models/index.js";
 
 export default class CreateApartmentsRepository {
   constructor() {

@@ -1,4 +1,4 @@
-import GetApartmentsRepository from "../repositories/getApartmentsRepository";
+import GetApartmentsRepository from "../repositories/getApartmentsRepository.js";
 
 export default class FetchApartmentUseCase {
   async execute() {

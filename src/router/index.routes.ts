@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import apartmentsRouter from "./apartments.routes";
+import apartmentsRouter from "./apartments.routes.js";
 
 const router = Router();
 

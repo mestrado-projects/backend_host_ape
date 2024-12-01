@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ESNext",
     "module": "Nodenext",
     "strict": true,
     "moduleResolution": "nodenext",
@@ -9,8 +9,9 @@
     "rootDir": "./src",
     "resolveJsonModule": true,
     "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "./types"],
     "skipLibCheck": true,
     "experimentalDecorators": true,       
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
   }
 }

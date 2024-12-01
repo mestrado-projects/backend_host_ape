@@ -9,7 +9,7 @@ import {
   Guests,
   ApartmentsDetails,
   ApartmentsReviews,
-} from "../models";
+} from "../models/index.js";
 
 dotenv.config();
 
