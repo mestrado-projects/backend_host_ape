@@ -1,4 +1,5 @@
 import { Sequelize } from "@sequelize/core";
+import { PostgresDialect } from "@sequelize/postgres";
 import dotenv from "dotenv";
 import {
   Apartments,
@@ -14,7 +15,7 @@ import {
 dotenv.config();
 
 const sequelize = new Sequelize({
-  dialect: "postgres",
+  dialect: PostgresDialect,
   models: [
     Apartments,
     ApartmentsCommodities,
@@ -25,6 +26,7 @@ const sequelize = new Sequelize({
     ApartmentsDetails,
     Guests,
   ],
+  ssl: true,
   url: process.env.DATABASE_URL,
   define: {
     underscored: true,
