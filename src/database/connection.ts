@@ -25,7 +25,7 @@ const sequelize = new Sequelize({
     ApartmentsDetails,
     Guests,
   ],
-  url: "postgresql://localhost:5434/host_ape_db?user=postgres&password=senha123",
+  url: process.env.DATABASE_URL,
   define: {
     underscored: true,
   },

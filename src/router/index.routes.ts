@@ -1,8 +1,11 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import apartmentsRouter from "./apartments.routes";
 
 const router = Router();
 
+router.get("/", (req: Request, res: Response) => {
+  res.status(200).send({ message: "healthy" });
+});
 router.use(apartmentsRouter);
 
 export default router;
