@@ -8,38 +8,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { DataTypes, Model, } from "@sequelize/core";
-import { Attribute, PrimaryKey, AutoIncrement, NotNull, Unique, HasMany, } from "@sequelize/core/decorators-legacy";
-import { ApartmentsReviews } from "../apartments/apartmentsReviews.js";
-import { Sessions } from "./session.js";
-export class Guests extends Model {
+import { Attribute, PrimaryKey, AutoIncrement, NotNull, Unique, } from "@sequelize/core/decorators-legacy";
+export class Sessions extends Model {
 }
 __decorate([
     Attribute(DataTypes.INTEGER),
     PrimaryKey,
     AutoIncrement,
     __metadata("design:type", Object)
-], Guests.prototype, "id", void 0);
+], Sessions.prototype, "id", void 0);
 __decorate([
     Attribute(DataTypes.STRING),
     NotNull,
     Unique,
     __metadata("design:type", String)
-], Guests.prototype, "email", void 0);
+], Sessions.prototype, "token", void 0);
 __decorate([
-    Attribute(DataTypes.STRING),
+    Attribute(DataTypes.INTEGER),
     NotNull,
-    __metadata("design:type", String)
-], Guests.prototype, "phone", void 0);
-__decorate([
-    Attribute(DataTypes.STRING),
-    NotNull,
-    __metadata("design:type", String)
-], Guests.prototype, "name", void 0);
-__decorate([
-    HasMany(() => ApartmentsReviews, "guest_id"),
-    __metadata("design:type", Object)
-], Guests.prototype, "reviews", void 0);
-__decorate([
-    HasMany(() => Sessions, "guest_id"),
-    __metadata("design:type", Object)
-], Guests.prototype, "sessions", void 0);
+    Unique,
+    __metadata("design:type", Number)
+], Sessions.prototype, "guest_id", void 0);

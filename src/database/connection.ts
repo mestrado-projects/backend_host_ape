@@ -1,6 +1,5 @@
 import { Sequelize } from "@sequelize/core";
 import { PostgresDialect } from "@sequelize/postgres";
-import dotenv from "dotenv";
 import {
   Apartments,
   ApartmentsCommodities,
@@ -11,8 +10,6 @@ import {
   ApartmentsDetails,
   ApartmentsReviews,
 } from "../models/index.js";
-
-dotenv.config();
 
 const sequelize = new Sequelize({
   dialect: PostgresDialect,

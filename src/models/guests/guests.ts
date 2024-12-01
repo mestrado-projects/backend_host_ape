@@ -15,6 +15,7 @@ import {
   HasMany,
 } from "@sequelize/core/decorators-legacy";
 import { ApartmentsReviews } from "../apartments/apartmentsReviews.js";
+import { Sessions } from "./session.js";
 
 export class Guests extends Model<
   InferAttributes<Guests>,
@@ -40,4 +41,7 @@ export class Guests extends Model<
 
   @HasMany(() => ApartmentsReviews, "guest_id")
   declare reviews?: NonAttribute<ApartmentsReviews[]>;
+
+  @HasMany(() => Sessions, "guest_id")
+  declare sessions?: NonAttribute<Sessions[]>;
 }
