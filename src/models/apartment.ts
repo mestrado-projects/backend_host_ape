@@ -19,10 +19,10 @@ Apartment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    location: {
+    simpleLocation: {
       type: DataTypes.STRING,
     },
-    price: {
+    basicPrice: {
       type: DataTypes.FLOAT,
     },
   },
