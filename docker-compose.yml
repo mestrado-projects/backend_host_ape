@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  host_ape_db:
+    image: postgres:latest
+    restart: always
+    networks:
+      - inbound
+    environment:
+      POSTGRES_DB: host_ape_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: senha123
+    ports:
+      - "5434:5432"
+
+networks:
+  inbound:
