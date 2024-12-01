@@ -30,7 +30,6 @@ export class ApartmentsContacts extends Model<
   declare phone: string;
 
   @Attribute(DataTypes.STRING)
-  @NotNull
   declare email: string;
 
   @Attribute(DataTypes.INTEGER)

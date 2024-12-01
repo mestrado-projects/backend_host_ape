@@ -3,10 +3,17 @@ import GetApartmentUseCase from "../useCase/getApartment";
 
 async function getApartmentsController(req: Request, res: Response) {
   try {
-    const id = req.params;
-    console.log("log id", id);
+    const id = Number(req.params?.id);
 
-    const apartments = await new GetApartmentUseCase().execute(1);
+    if (!id) {
+      res.status(400).json({
+        message: "Bad Request",
+        details: `Invalid apartment Id ${req.params?.id}`,
+      });
+      return;
+    }
+
+    const apartments = await new GetApartmentUseCase().execute(id);
     res.json(apartments);
   } catch (error: any) {
     console.error(error);

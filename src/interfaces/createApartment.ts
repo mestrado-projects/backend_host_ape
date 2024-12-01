@@ -9,9 +9,30 @@ export interface createApartment {
   bathroom: number;
   bedroom: number;
   beds: number;
-  details?: apartmentDetails[];
+  commodities: {
+    has: boolean;
+    name: string;
+  }[];
+  contacts: {
+    contact_name: string;
+    email?: string;
+    phone: string;
+  }[];
+  details: {
+    name: string;
+    value: string;
+  }[];
   kitchen: boolean;
   name: string;
+  property_security: {
+    name: string;
+    value: string;
+  }[];
+  rules: {
+    check_in: string;
+    check_out: string;
+    guests_quantity: number;
+  };
   simpleLocation: string;
-  type?: 'Apartment' | 'Studio';
+  type: 'Apartment' | 'Studio';
 }

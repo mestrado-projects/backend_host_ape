@@ -21,13 +21,13 @@ export class ApartmentsRules extends Model<
   @AutoIncrement
   declare id: CreationOptional<number>;
 
-  @Attribute(DataTypes.DATE)
+  @Attribute(DataTypes.STRING)
   @NotNull
-  declare check_in: Date;
+  declare check_in: string;
 
-  @Attribute(DataTypes.DATE)
+  @Attribute(DataTypes.STRING)
   @NotNull
-  declare check_out: Date;
+  declare check_out: string;
 
   @Attribute(DataTypes.INTEGER)
   @NotNull

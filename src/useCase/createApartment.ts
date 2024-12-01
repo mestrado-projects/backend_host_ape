@@ -3,7 +3,8 @@ import CreateApartmentsRepository from "../repositories/createApartmentsReposito
 export default class CreateApartmentUseCase {
   async execute(body: any) {
     try {
-      await new CreateApartmentsRepository().transaction(body);
+      const response = await new CreateApartmentsRepository().transaction(body);
+      return response;
     } catch (error) {
       throw error;
     }

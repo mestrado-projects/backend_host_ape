@@ -22,7 +22,9 @@ export default class GetApartmentsRepository {
 
   public async getAllApartments() {
     try {
-      const result = await Apartments.findAll();
+      const result = await Apartments.findAll({
+        order: [["id", "ASC"]],
+      });
       return result;
     } catch (error) {
       throw error;
@@ -37,6 +39,11 @@ export default class GetApartmentsRepository {
         },
         include: [{ model: ApartmentsDetails }],
       });
+
+      if (!result) {
+        throw new Error(`Apartment with id: "${id}" not found`);
+      }
+
       return result;
     } catch (error) {
       throw error;

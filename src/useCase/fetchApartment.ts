@@ -3,7 +3,8 @@ import GetApartmentsRepository from "../repositories/getApartmentsRepository";
 export default class FetchApartmentUseCase {
   async execute() {
     try {
-      await new GetApartmentsRepository().getAllApartments();
+      const response = await new GetApartmentsRepository().getAllApartments();
+      return response;
     } catch (error) {
       throw error;
     }

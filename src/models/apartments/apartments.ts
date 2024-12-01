@@ -19,8 +19,9 @@ import { ApartmentsRules } from "./apartmentsRules";
 import { ApartmentsPropertySecurity } from "./apartmentsPropertySecurity";
 import { ApartmentsContacts } from "./apartmentsContacts";
 import { ApartmentsReviews } from "./apartmentsReviews";
+import { ApartmentsDetails } from "./apartmentsDetails";
 
-enum ApartmentType {
+export enum ApartmentType {
   Apartment = "Apartment",
   Studio = "Studio",
 }
@@ -80,6 +81,9 @@ export class Apartments extends Model<
 
   @HasMany(() => ApartmentsContacts, "apartment_id")
   declare contacts?: NonAttribute<ApartmentsContacts[]>;
+
+  @HasMany(() => ApartmentsDetails, "apartment_id")
+  declare details?: NonAttribute<ApartmentsDetails[]>;
 
   @HasMany(() => ApartmentsReviews, { foreignKey: "apartment_id" })
   declare reviews?: NonAttribute<ApartmentsReviews[]>;

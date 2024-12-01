@@ -21,13 +21,13 @@ export class ApartmentsDetails extends Model<
   @AutoIncrement
   declare id: CreationOptional<number>;
 
-  @Attribute(DataTypes.TEXT)
+  @Attribute(DataTypes.STRING)
   @NotNull
   declare name: string;
 
-  @Attribute(DataTypes.INTEGER)
+  @Attribute(DataTypes.TEXT)
   @NotNull
-  declare value: number;
+  declare value: string;
 
   @Attribute(DataTypes.INTEGER)
   @NotNull
