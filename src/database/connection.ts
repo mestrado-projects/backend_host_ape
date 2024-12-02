@@ -10,6 +10,7 @@ import {
   ApartmentsDetails,
   ApartmentsReviews,
 } from "../models/index.js";
+import { Sessions } from "../models/guests/session.js";
 
 const sequelize = new Sequelize({
   dialect: PostgresDialect,
@@ -21,6 +22,7 @@ const sequelize = new Sequelize({
     ApartmentsContacts,
     ApartmentsReviews,
     ApartmentsDetails,
+    Sessions,
     Guests,
   ],
   ssl: true,
