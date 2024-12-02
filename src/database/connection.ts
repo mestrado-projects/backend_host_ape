@@ -27,10 +27,7 @@ const sequelize = new Sequelize({
     Sessions,
     Guests,
   ],
-  ssl: {
-    rejectUnauthorized: true,
-    requestCert: true,
-  },
+  ssl: true,
   url: process.env.DATABASE_URL,
   define: {
     underscored: true,
