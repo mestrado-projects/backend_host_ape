@@ -5,4 +5,6 @@ export * from "./apartments/apartmentsPropertySecurity.js";
 export * from "./apartments/apartmentsContacts.js";
 export * from "./apartments/apartmentsReviews.js";
 export * from "./apartments/apartmentsDetails.js";
+export * from "./apartments/apartmentsImages.js";
+export * from "./guests/session.js";
 export * from "./guests/guests.js";

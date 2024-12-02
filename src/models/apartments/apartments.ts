@@ -20,6 +20,7 @@ import { ApartmentsPropertySecurity } from "./apartmentsPropertySecurity.js";
 import { ApartmentsContacts } from "./apartmentsContacts.js";
 import { ApartmentsReviews } from "./apartmentsReviews.js";
 import { ApartmentsDetails } from "./apartmentsDetails.js";
+import { ApartmentsImages } from "./apartmentsImages.js";
 
 export enum ApartmentType {
   Apartment = "Apartment",
@@ -87,4 +88,7 @@ export class Apartments extends Model<
 
   @HasMany(() => ApartmentsReviews, { foreignKey: "apartment_id" })
   declare reviews?: NonAttribute<ApartmentsReviews[]>;
+
+  @HasMany(() => ApartmentsImages, { foreignKey: "apartment_id" })
+  declare images?: NonAttribute<ApartmentsImages[]>;
 }

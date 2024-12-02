@@ -7,10 +7,11 @@ import {
   ApartmentsPropertySecurity,
   ApartmentsContacts,
   Guests,
+  Sessions,
   ApartmentsDetails,
   ApartmentsReviews,
+  ApartmentsImages,
 } from "../models/index.js";
-import { Sessions } from "../models/guests/session.js";
 
 const sequelize = new Sequelize({
   dialect: PostgresDialect,
@@ -22,10 +23,14 @@ const sequelize = new Sequelize({
     ApartmentsContacts,
     ApartmentsReviews,
     ApartmentsDetails,
+    ApartmentsImages,
     Sessions,
     Guests,
   ],
-  ssl: true,
+  ssl: {
+    rejectUnauthorized: true,
+    requestCert: true,
+  },
   url: process.env.DATABASE_URL,
   define: {
     underscored: true,
