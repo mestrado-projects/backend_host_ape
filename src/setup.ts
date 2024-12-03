@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
 
 if (process.env.ENVIRONMENT === "local") {
   const joiToTypescript = require("joi-to-typescript");
@@ -9,5 +10,3 @@ if (process.env.ENVIRONMENT === "local") {
     debug: true,
   });
 }
-
-dotenv.config({ path: ".env" });

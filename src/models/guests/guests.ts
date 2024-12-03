@@ -33,6 +33,10 @@ export class Guests extends Model<
 
   @Attribute(DataTypes.STRING)
   @NotNull
+  declare password: string;
+
+  @Attribute(DataTypes.STRING)
+  @NotNull
   declare phone: string;
 
   @Attribute(DataTypes.STRING)

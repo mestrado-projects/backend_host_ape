@@ -12,7 +12,8 @@
     "dev": "nodemon src/server.ts",
     "sequelize": "sequelize-cli",
     "db:migrate": "sequelize db:migrate",
-    "db:init": "npx sequelize-cli init"
+    "db:init": "npx sequelize-cli init",
+    "migrate": "node dist/database/migrate.js"
   },
   "author": "yaratavares",
   "license": "MIT",
@@ -20,6 +21,7 @@
   "dependencies": {
     "@sequelize/core": "~7.0.0-alpha.43",
     "@sequelize/postgres": "~7.0.0-alpha.43",
+    "bcrypt": "~5.1.1",
     "cloudinary": "~2.5.1",
     "dotenv": "~16.4.5",
     "express": "~4.21.1",
@@ -29,6 +31,7 @@
     "ts-node": "~10.9.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "~5.0.2",
     "@types/express": "~5.0.0",
     "@types/jsonwebtoken": "~9.0.7",
     "joi-to-typescript": "~4.14.0",

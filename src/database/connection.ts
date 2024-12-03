@@ -12,6 +12,10 @@ import {
   ApartmentsReviews,
   ApartmentsImages,
 } from "../models/index.js";
+import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
+
+const isLocal = process.env.IS_LOCAL === "true";
 
 const sequelize = new Sequelize({
   dialect: PostgresDialect,
@@ -27,10 +31,14 @@ const sequelize = new Sequelize({
     Sessions,
     Guests,
   ],
-  ssl: {
-    requestCert: true,
-    rejectUnauthorized: false, // Permite conexões com certificados não verificados
-  },
+  ...(isLocal
+    ? {}
+    : {
+        ssl: {
+          requestCert: true,
+          rejectUnauthorized: false,
+        },
+      }),
   url: process.env.DATABASE_URL,
   define: {
     underscored: true,

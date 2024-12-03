@@ -5,7 +5,7 @@ export default class SessionsRepository {
     return Sessions.findOne({ where: { guest_id } });
   }
 
-  create(token: string, guest_id: number) {
+  create({ token, guest_id }: { token: string; guest_id: number }) {
     return Sessions.create({
       token,
       guest_id,

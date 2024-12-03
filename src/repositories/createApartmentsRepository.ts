@@ -15,7 +15,6 @@ export default class CreateApartmentsRepository {
       .authenticate()
       .then(() => console.log("Conectado ao banco de dados com sucesso!"))
       .catch((err) => console.error("Erro ao conectar ao banco:", err));
-    sequelize.sync();
   }
 
   public async transaction(
