@@ -1,6 +1,12 @@
-import { v2 as cloudinary, ConfigOptions } from "cloudinary";
+import {
+  v2 as cloudinary,
+  ConfigOptions,
+  UploadApiResponse,
+  UploadStream,
+} from "cloudinary";
+import streamifier from "streamifier";
 
-export default class cloudinaryClient {
+export default class CloudinaryClient {
   client: ConfigOptions;
 
   constructor() {
@@ -11,24 +17,33 @@ export default class cloudinaryClient {
     });
   }
 
-  async uploadImage(): Promise<string> {
+  async uploadImage(imageBuffer: Buffer): Promise<string> {
     try {
-      const uploadResult = await cloudinary.uploader.upload(
-        "https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg",
-        {
-          public_id: "shoes",
-        },
-      );
+      const uploadStream = await this.streamUpload(imageBuffer);
 
-      if (!uploadResult.url) {
-        throw new Error("Image not found");
+      if (!uploadStream.url) {
+        throw new Error("Not upload image");
       }
 
-      return uploadResult.url;
+      return uploadStream.url;
     } catch (error) {
       console.log(error);
       throw error;
     }
+  }
+
+  private streamUpload(fileBuffer: Buffer): Promise<UploadApiResponse> {
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream((error, result) => {
+        if (result) {
+          resolve(result);
+        } else {
+          reject(error);
+        }
+      });
+
+      streamifier.createReadStream(fileBuffer).pipe(stream);
+    });
   }
 
   async getImage(): Promise<string> {
