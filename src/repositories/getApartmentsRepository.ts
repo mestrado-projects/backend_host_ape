@@ -1,5 +1,14 @@
 import sequelize from "../database/connection.js";
-import { Apartments, ApartmentsDetails } from "../models/index.js";
+import {
+  Apartments,
+  ApartmentsCommodities,
+  ApartmentsContacts,
+  ApartmentsDetails,
+  ApartmentsImages,
+  ApartmentsPropertySecurity,
+  ApartmentsReviews,
+  ApartmentsRules,
+} from "../models/index.js";
 
 export default class GetApartmentsRepository {
   constructor() {
@@ -26,7 +35,15 @@ export default class GetApartmentsRepository {
         where: {
           id,
         },
-        include: [{ model: ApartmentsDetails }],
+        include: [
+          { model: ApartmentsDetails },
+          { model: ApartmentsImages },
+          { model: ApartmentsCommodities },
+          { model: ApartmentsContacts },
+          { model: ApartmentsPropertySecurity },
+          { model: ApartmentsReviews },
+          { model: ApartmentsRules },
+        ],
       });
 
       if (!result) {
