@@ -14,6 +14,8 @@ async function signUpController(req: Request, res: Response) {
     res.sendStatus(201);
   } catch (error: any) {
     console.error(error);
+    res.setHeaders(HeadersResponseHelper.getInstance().getDefaultHeaders());
+
     res
       .status(500)
       .send({ message: "Unexpected Error", details: error?.message });
@@ -30,6 +32,8 @@ async function signInController(req: Request, res: Response) {
     res.status(200).send({ token });
   } catch (error: any) {
     console.error(error);
+    res.setHeaders(HeadersResponseHelper.getInstance().getDefaultHeaders());
+
     res
       .status(500)
       .send({ message: "Unexpected Error", details: error?.message });
