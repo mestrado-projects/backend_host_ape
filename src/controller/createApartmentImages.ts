@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import CreateApartmentImagesUseCase from "../useCase/createApartmentImages.js";
+import HeadersResponseHelper from "../utils/headerResponse.js";
 
 async function createApartmentImagesController(req: Request, res: Response) {
   try {
@@ -37,6 +38,9 @@ async function createApartmentImagesController(req: Request, res: Response) {
       imagesFileRequest,
       mainImageFileRequest,
     );
+
+    res.setHeaders(HeadersResponseHelper.getInstance().getDefaultHeaders());
+
     res.status(200).send(apartmentImages);
   } catch (error: any) {
     console.error(error);

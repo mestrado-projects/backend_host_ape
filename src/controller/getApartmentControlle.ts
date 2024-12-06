@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import GetApartmentUseCase from "../useCase/getApartment.js";
+import HeadersResponseHelper from "../utils/headerResponse.js";
 
 async function getApartmentsController(req: Request, res: Response) {
   try {
@@ -14,6 +15,9 @@ async function getApartmentsController(req: Request, res: Response) {
     }
 
     const apartments = await new GetApartmentUseCase().execute(id);
+
+    res.setHeaders(HeadersResponseHelper.getInstance().getDefaultHeaders());
+
     res.json(apartments);
   } catch (error: any) {
     console.error(error);
