@@ -15,6 +15,7 @@ import {
 export enum ImageType {
   Principal = "Principal",
   Rooms = "Rooms",
+  Thumb = "Thumb",
 }
 
 export class ApartmentsImages extends Model<

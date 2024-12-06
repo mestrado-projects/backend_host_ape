@@ -22,6 +22,7 @@ export default class GetApartmentsRepository {
     try {
       const result = await Apartments.findAll({
         order: [["id", "ASC"]],
+        include: { model: ApartmentsImages },
       });
       return result;
     } catch (error) {
