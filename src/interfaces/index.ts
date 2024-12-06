@@ -4,3 +4,4 @@
  */
 
 export * from "./createApartment.js";
+export * from "./createGuest.js";

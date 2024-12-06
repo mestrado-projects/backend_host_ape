@@ -32,7 +32,11 @@ export default class SignInGuestUseCase {
 
     const secretKey = process.env.JWT_SECRET || "";
     const config = { expiresIn: "1hr" };
-    const token = jwt.sign({ email: user.email }, secretKey, config);
+    const token = jwt.sign(
+      { email: user.email, id: user.id },
+      secretKey,
+      config,
+    );
 
     if (session) {
       await sessionsRepository.update(session.id, token);
