@@ -20,6 +20,7 @@ apartmentsRouter.post(
   "/apartments/:apartmentId/images/",
   upload.fields([
     { name: "main", maxCount: 1 },
+    { name: "thumb", maxCount: 1 },
     { name: "images", maxCount: 30 },
   ]),
   createApartmentImagesController,

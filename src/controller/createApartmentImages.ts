@@ -4,39 +4,42 @@ import HeadersResponseHelper from "../utils/headerResponse.js";
 
 async function createApartmentImagesController(req: Request, res: Response) {
   try {
-    const imagesFileRequest = Object(req.files)?.images as {
+    const files = Object(req.files);
+    const imagesFileRequest = files?.images as {
       buffer: Buffer;
       originalname: string;
     }[];
 
-    const mainImageFileRequest = Object(req.files)?.main[0] as {
-      buffer: Buffer;
-      originalname: string;
-    };
+    const mainImageFileRequest =
+      (files?.main?.length > 0 &&
+        (files?.main[0] as {
+          buffer: Buffer;
+          originalname: string;
+        })) ||
+      undefined;
 
+    const thumbImageFileRequest =
+      (files?.thumb?.length > 0 &&
+        (files?.thumb[0] as {
+          buffer: Buffer;
+          originalname: string;
+        })) ||
+      undefined;
     const apartmentId = Number(req.params.apartmentId);
 
     if (!apartmentId) {
       throw Error("Send ApartmentId as a number");
     }
 
-    if (!imagesFileRequest || !mainImageFileRequest) {
+    if (!imagesFileRequest && !mainImageFileRequest && !thumbImageFileRequest) {
       throw Error("Send images or/and main as multpart/form-data");
-    }
-
-    const imagesBuffers = [...imagesFileRequest].map(
-      (file) => file?.buffer || [],
-    );
-    const mainBuffer = mainImageFileRequest?.buffer;
-
-    if (!imagesBuffers || !mainBuffer) {
-      throw Error("There is a problem in your request, send images");
     }
 
     const apartmentImages = await new CreateApartmentImagesUseCase().execute(
       apartmentId,
       imagesFileRequest,
       mainImageFileRequest,
+      thumbImageFileRequest,
     );
 
     res.setHeaders(HeadersResponseHelper.getInstance().getDefaultHeaders());
