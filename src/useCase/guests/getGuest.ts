@@ -1,4 +1,4 @@
-import guestsRepository from "../repositories/guestsRepository.js";
+import guestsRepository from "../../repositories/guestsRepository.js";
 
 export default class GetGuestUseCase {
   async execute(id: number) {

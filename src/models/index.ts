@@ -8,3 +8,5 @@ export * from "./apartments/apartmentsDetails.js";
 export * from "./apartments/apartmentsImages.js";
 export * from "./guests/session.js";
 export * from "./guests/guests.js";
+export * from "./bookings/bookings.js"
+export * from "./faq/faq.js"

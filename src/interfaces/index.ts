@@ -5,3 +5,5 @@
 
 export * from "./createApartment.js";
 export * from "./createGuest.js";
+export * from "./createFAQ.js"
+export * from "./createBooking.js"

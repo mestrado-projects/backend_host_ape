@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CreateApartmentUseCase from "../useCase/createApartment.js";
+import CreateApartmentUseCase from "../useCase/apartaments/createApartment.js";
 import HeadersResponseHelper from "../utils/headerResponse.js";
 
 async function createApartmentsController(req: Request, res: Response) {

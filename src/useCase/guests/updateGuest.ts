@@ -1,5 +1,5 @@
-import { createGuest } from "../interfaces/createGuest.js";
-import guestsRepository from "../repositories/guestsRepository.js";
+import { createGuest } from "../../interfaces/createGuest.js";
+import guestsRepository from "../../repositories/guestsRepository.js";
 import bcrypt from "bcrypt";
 
 export default class UpdateGuestUseCase {

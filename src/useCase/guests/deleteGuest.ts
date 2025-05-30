@@ -1,4 +1,4 @@
-import guestsRepository from "../repositories/guestsRepository.js";
+import guestsRepository from "../../repositories/guestsRepository.js";
 
 export default class DeleteGuestUseCase {
   async execute(id: number) {

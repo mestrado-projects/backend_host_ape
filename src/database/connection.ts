@@ -15,10 +15,15 @@ import {
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
 
-const isLocal = process.env.IS_LOCAL === "true";
+const isLocal = process.env.NODE_ENV === 'local';
 
 const sequelize = new Sequelize({
   dialect: PostgresDialect,
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5434'),
+  database: process.env.POSTGRES_DB || 'host_ape_db',
+  user: process.env.POSTGRES_USER || 'postgres',
+  password: process.env.POSTGRES_PASSWORD || 'senha123',
   models: [
     Apartments,
     ApartmentsCommodities,

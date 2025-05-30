@@ -3,9 +3,9 @@ import { Guests } from "../models/index.js";
 import SignUpGuestUseCase from "../useCase/signUpGuest.js";
 import SignInGuestUseCase from "../useCase/signInGuest.js";
 import HeadersResponseHelper from "../utils/headerResponse.js";
-import DeleteGuestUseCase from "../useCase/deleteGuest.js";
-import UpdateGuestUseCase from "../useCase/updateGuest.js";
-import GetGuestUseCase from "../useCase/getGuest.js";
+import DeleteGuestUseCase from "../useCase/guests/deleteGuest.js";
+import UpdateGuestUseCase from "../useCase/guests/updateGuest.js";
+import GetGuestUseCase from "../useCase/guests/getGuest.js";
 
 async function signUpController(req: Request, res: Response) {
   try {
