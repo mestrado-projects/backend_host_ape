@@ -6,7 +6,10 @@ export * from "./apartments/apartmentsContacts.js";
 export * from "./apartments/apartmentsReviews.js";
 export * from "./apartments/apartmentsDetails.js";
 export * from "./apartments/apartmentsImages.js";
-export * from "./guests/session.js";
-export * from "./guests/guests.js";
+export * from "./users/users.js"
+export * from "./users/guests.js"
+export * from "./users/sessions.js"
 export * from "./bookings/bookings.js"
 export * from "./faq/faq.js"
+export * from "./itinerary/itinerary.js"
+export * from "./testimonials/testimonials.js"

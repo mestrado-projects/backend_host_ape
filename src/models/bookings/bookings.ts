@@ -7,7 +7,7 @@ import {
   type NonAttribute,
 } from "@sequelize/core"
 import { Attribute, PrimaryKey, AutoIncrement, NotNull, BelongsTo } from "@sequelize/core/decorators-legacy"
-import { Guests } from "../guests/guests.js"
+import { Guests } from "../users/guests.js"
 import { Apartments } from "../apartments/apartments.js"
 
 export enum BookingStatus {

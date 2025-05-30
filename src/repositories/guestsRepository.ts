@@ -1,24 +1,44 @@
-import { createGuest } from "../interfaces/createGuest.js";
-import { Guests } from "../models/index.js";
+import type { createGuest } from "../interfaces/createGuest.js"
+import { Guests } from "../models/index.js"
 
-function insert(newUser: createGuest) {
-  return Guests.create(newUser);
+function insert(newGuest: createGuest) {
+  return Guests.create(newGuest)
 }
 
-function findByEmail(email: string) {
-  return Guests.findOne({ where: { email } });
+function findByUserId(user_id: number) {
+  return Guests.findOne({
+    where: { user_id },
+    include: ["user"],
+  })
 }
 
 function findById(id: number) {
-  return Guests.findOne({ where: { id } });
+  return Guests.findOne({
+    where: { id },
+    include: ["user"],
+  })
+}
+
+function findAll() {
+  return Guests.findAll({
+    include: ["user"],
+    order: [["id", "ASC"]],
+  })
+}
+
+function updateById(id: number, newData: Partial<createGuest>) {
+  return Guests.update({ ...newData }, { where: { id } })
 }
 
 function deleteById(id: number) {
-  return Guests.destroy({ where: { id } });
+  return Guests.destroy({ where: { id } })
 }
 
-function updateById(id: number, newData: createGuest) {
-  return Guests.update({ ...newData }, { where: { id } });
+export default {
+  insert,
+  findByUserId,
+  findById,
+  findAll,
+  updateById,
+  deleteById,
 }
-
-export default { insert, findByEmail, deleteById, updateById, findById };
