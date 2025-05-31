@@ -182,7 +182,7 @@ authUserRouter.post("/users/sign-up", signUpController)
 authUserRouter.post("/users/sign-in", signInController)
 authUserRouter.get("/user/:id", tokenValidateMiddleware, requireAnyRole(), getUserController)
 authUserRouter.put("/user/:id", tokenValidateMiddleware, requireAnyRole(), updateUserController)
-authUserRouter.delete("/user/:id", tokenValidateMiddleware, requireAdmin(), deleteUserController)
+authUserRouter.delete("/user/:id", tokenValidateMiddleware, requireAnyRole(), deleteUserController)
 
 // Guest profile routes
 authUserRouter.post("/guest/profile", tokenValidateMiddleware, requireGuest(), createGuestProfileController)
