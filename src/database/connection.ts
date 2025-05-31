@@ -18,7 +18,7 @@ import {
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
 
-const isLocal = process.env.NODE_ENV === 'local';
+const isLocal = process.env.ENVIRONMENT === 'local';
 
 const sequelize = new Sequelize({
   dialect: PostgresDialect,
