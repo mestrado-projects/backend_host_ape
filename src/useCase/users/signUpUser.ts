@@ -31,7 +31,6 @@ export default class SignUpUserUseCase {
 
       const createdUser = await usersRepository.insert(userObject)
 
-      // If user has ROLE_GUEST, create guest profile
       if (userData.roles.includes("ROLE_GUEST" as UserRole) && userData.guestData) {
         await guestsRepository.insert({
           user_id: createdUser.id,

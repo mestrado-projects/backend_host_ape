@@ -1,18 +1,31 @@
-import { Router } from "express";
+import { Router } from "express"
 import {
-  deleteGuestController,
-  getGuestController,
+  deleteUserController,
+  getUserController,
   signInController,
   signUpController,
-  updateGuestController,
-} from "../controller/authGuestController.js";
+  updateUserController,
+} from "../controller/authUserController.js"
+import {
+  createGuestProfileController,
+  getGuestProfileController,
+  updateGuestProfileController,
+} from "../controller/guestsController.js"
+import tokenValidateMiddleware from "../middlewares/tokenValidateMiddleware.js"
+import { requireAdmin, requireAnyRole, requireGuest } from "../middlewares/roleValidateMiddleware.js"
 
-const authGuestRouter = Router();
+const authUserRouter = Router()
 
-authGuestRouter.post("/guests/sign-up", signUpController);
-authGuestRouter.post("/guests/sign-in", signInController);
-authGuestRouter.get("/guest/:id", getGuestController);
-authGuestRouter.put("/guest/:id", updateGuestController);
-authGuestRouter.delete("/guest/:id", deleteGuestController);
+// User routes
+authUserRouter.post("/users/sign-up", signUpController)
+authUserRouter.post("/users/sign-in", signInController)
+authUserRouter.get("/user/:id", tokenValidateMiddleware, requireAnyRole(), getUserController)
+authUserRouter.put("/user/:id", tokenValidateMiddleware, requireAnyRole(), updateUserController)
+authUserRouter.delete("/user/:id", tokenValidateMiddleware, requireAdmin(), deleteUserController)
 
-export default authGuestRouter;
+// Guest profile routes
+authUserRouter.post("/guest/profile", tokenValidateMiddleware, requireGuest(), createGuestProfileController)
+authUserRouter.get("/guest/profile", tokenValidateMiddleware, requireGuest(), getGuestProfileController)
+authUserRouter.put("/guest/profile", tokenValidateMiddleware, requireGuest(), updateGuestProfileController)
+
+export default authUserRouter

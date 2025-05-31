@@ -1,4 +1,4 @@
-import GetApartmentsRepository from "../repositories/getApartmentsRepository.js";
+import GetApartmentsRepository from "../../repositories/getApartmentsRepository.js";
 
 export default class GetApartmentUseCase {
   async execute(id: number) {

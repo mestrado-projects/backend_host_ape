@@ -1,7 +1,7 @@
 import type { createGuest } from "../interfaces/createGuest.js"
 import { Guests } from "../models/index.js"
 
-function insert(newGuest: createGuest) {
+function insert(newGuest: createGuest & {user_id: number}) {
   return Guests.create(newGuest)
 }
 

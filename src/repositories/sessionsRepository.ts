@@ -1,29 +1,29 @@
-import { Sessions } from "../models/guests/session.js";
+import { Sessions } from "../models/users/sessions.js"
 
 export default class SessionsRepository {
-  findByUserId(guest_id: number) {
-    return Sessions.findOne({ where: { guest_id } });
+  findByUserId(user_id: number) {
+    return Sessions.findOne({ where: { user_id } })
   }
 
-  create({ token, guest_id }: { token: string; guest_id: number }) {
+  create({ token, user_id }: { token: string; user_id: number }) {
     return Sessions.create({
       token,
-      guest_id,
-    });
+      user_id,
+    })
   }
 
-  update(guest_id: number, newToken: string) {
+  update(user_id: number, newToken: string) {
     return Sessions.update(
       {
         token: newToken,
       },
       {
-        where: { guest_id },
+        where: { user_id },
       },
-    );
+    )
   }
 
   findByToken(token: string) {
-    return Sessions.findOne({ where: { token } });
+    return Sessions.findOne({ where: { token } })
   }
 }

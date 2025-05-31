@@ -11,6 +11,9 @@ import {
   ApartmentsDetails,
   ApartmentsReviews,
   ApartmentsImages,
+  Users,
+  Bookings,
+  Testimonials,
 } from "../models/index.js";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
@@ -33,8 +36,11 @@ const sequelize = new Sequelize({
     ApartmentsReviews,
     ApartmentsDetails,
     ApartmentsImages,
+    Bookings,
+    Testimonials,
     Sessions,
     Guests,
+    Users
   ],
   ...(isLocal
     ? {}

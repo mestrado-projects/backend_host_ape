@@ -1,5 +1,5 @@
-import { Apartments, ApartmentsImages, ImageType } from "../models/index.js";
-import GetApartmentsRepository from "../repositories/getApartmentsRepository.js";
+import { Apartments, ApartmentsImages, ImageType } from "../../models/index.js";
+import GetApartmentsRepository from "../../repositories/getApartmentsRepository.js";
 
 export default class FetchApartmentUseCase {
   async execute() {

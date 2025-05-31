@@ -55,7 +55,6 @@ export default class SignInUserUseCase {
     const session = await sessionsRepository.findByUserId(user.id)
 
     const secretKey = process.env.JWT_SECRET || ""
-    const config = { expiresIn: "24h" }
     const token = jwt.sign(
       {
         email: user.email,
@@ -63,8 +62,9 @@ export default class SignInUserUseCase {
         roles: user.roles,
       },
       secretKey,
-      config,
+      { expiresIn: "24h" }
     )
+
 
     if (session) {
       await sessionsRepository.update(user.id, token)

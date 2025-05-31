@@ -26,7 +26,8 @@ async function getGuestProfileController(req: Request, res: Response) {
 
     const guest = await guestsRepository.findByUserId(user.id)
     if (!guest) {
-      return res.status(404).json({ message: "Guest profile not found" })
+      res.status(404).json({ message: "Guest profile not found" })
+      return
     }
 
     res.setHeaders(HeadersResponseHelper.getInstance().getDefaultHeaders())
@@ -46,7 +47,8 @@ async function updateGuestProfileController(req: Request, res: Response) {
 
     const guest = await guestsRepository.findByUserId(user.id)
     if (!guest) {
-      return res.status(404).json({ message: "Guest profile not found" })
+      res.status(404).json({ message: "Guest profile not found" })
+      return
     }
 
     await guestsRepository.updateById(guest.id, newData)

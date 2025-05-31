@@ -1,10 +1,10 @@
-import { ImageType } from "../models/index.js";
+import { ImageType } from "../../models/index.js";
 import {
   createImagesBulk,
   CreateApartmentImagesRepository,
-} from "../repositories/createApartmentImagesRepository.js";
-import GetApartmentsRepository from "../repositories/getApartmentsRepository.js";
-import CloudinaryClient from "../services/cloudinaryClient.js";
+} from "../../repositories/createApartmentImagesRepository.js";
+import GetApartmentsRepository from "../../repositories/getApartmentsRepository.js";
+import CloudinaryClient from "../../services/cloudinaryClient.js";
 
 export default class CreateApartmentImagesUseCase {
   async execute(
