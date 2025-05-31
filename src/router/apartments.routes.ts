@@ -6,18 +6,22 @@ import { getApartmentsController } from "../controller/getApartmentControlle.js"
 import { fetchApartmentsController } from "../controller/fetchApartmentsController.js";
 import { createApartmentImagesController } from "../controller/createApartmentImages.js";
 import upload from "../services/multerConfig.js";
+import tokenValidateMiddleware from "../middlewares/tokenValidateMiddleware.js";
+import { requireAdmin } from "../middlewares/roleValidateMiddleware.js";
 
 const apartmentsRouter = Router();
 
 apartmentsRouter.post(
   "/apartments",
+  tokenValidateMiddleware,
+  requireAdmin(),
   validateSchemaMiddleware(createApartmentSchema),
   createApartmentsController,
 );
-apartmentsRouter.get("/apartments", fetchApartmentsController);
-apartmentsRouter.get("/apartments/:id", getApartmentsController);
 apartmentsRouter.post(
   "/apartments/:apartmentId/images/",
+  tokenValidateMiddleware,
+  requireAdmin(),
   upload.fields([
     { name: "main", maxCount: 1 },
     { name: "thumb", maxCount: 1 },
@@ -25,5 +29,7 @@ apartmentsRouter.post(
   ]),
   createApartmentImagesController,
 );
+apartmentsRouter.get("/apartments", fetchApartmentsController);
+apartmentsRouter.get("/apartments/:id", getApartmentsController);
 
 export default apartmentsRouter;

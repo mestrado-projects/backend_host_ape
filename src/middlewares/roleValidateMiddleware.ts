@@ -10,7 +10,7 @@ export function requireRole(allowedRoles: UserRole[]) {
       return
     }
 
-    const hasRequiredRole = allowedRoles.some((role) => user.roles.includes(role))
+    const hasRequiredRole = allowedRoles.some((role) => user.role.includes(role))
 
     if (!hasRequiredRole) {
       res.status(403).json({

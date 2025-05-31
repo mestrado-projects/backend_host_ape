@@ -15,7 +15,12 @@ export default async function tokenValidateMiddleware(req: Request, res: Respons
 
   try {
     const user = await verifyToken(token)
-    res.locals.user = user
+    res.locals.user = {
+      email: user.email,
+      role: user.role,
+      name: user.name,
+      guest: user.guest
+    }
     next()
   } catch (error) {
     res.status(401).json({ message: "Unauthorized" })
