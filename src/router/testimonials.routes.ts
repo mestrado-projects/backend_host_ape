@@ -7,7 +7,7 @@ import {
   deleteTestimonialController,
 } from "../controller/testimonialsController.js"
 import tokenValidateMiddleware from "../middlewares/tokenValidateMiddleware.js"
-import { requireAdmin, requireAnyRole } from "../middlewares/roleValidateMiddleware.js"
+import { requireAdmin, requireAnyRole, requireGuest } from "../middlewares/roleValidateMiddleware.js"
 
 const testimonialsRouter = Router()
 
@@ -68,7 +68,7 @@ const testimonialsRouter = Router()
  *       500:
  *         description: Erro interno do servidor
  */
-testimonialsRouter.post("/testimonials", tokenValidateMiddleware, requireAdmin(), createTestimonialController)
+testimonialsRouter.post("/testimonials", tokenValidateMiddleware, requireGuest(), createTestimonialController)
 
 /**
  * @swagger

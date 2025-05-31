@@ -1,0 +1,1007 @@
+{
+	"info": {
+		"_postman_id": "0e9670e9-9c7b-42c9-9796-8bc33c7463bb",
+		"name": "host_ape",
+		"description": "Improved API collection for Host Ape project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45426730"
+	},
+	"item": [
+		{
+			"name": "Apartments",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Aconchego no Litoral Norte\",\n  \"simpleLocation\": \"Cabedelo, Paraíba\",\n  \"basicPrice\": 210,\n  \"type\": \"Apartment\",\n  \"bathroom\": 2,\n  \"bedroom\": 2,\n  \"kitchen\": true,\n  \"beds\": 3,\n  \"about\": \"Aproveite tudo o que o litoral norte paraibano oferece!\\n\\nA 200 metros (5 min a pé) da Praia de Areia Dourada, com acesso fácil a passeios para Ilha Vermelha e ao pôr do sol da Praia do Jacaré. O apê conta com dois banheiros, garagem privativa, ar-condicionado na suíte e no quarto social, e uma cozinha completa (fogão, micro-ondas, airfryer, purificador de água). Ambiente acolhedor com cama queen, cama de solteiro e sofá-cama. Espaço para home office com Wi-Fi e mesa em L.\",\n  \"details\": [\n    {\n      \"name\": \"Quarto Suíte\",\n      \"value\": \"Cama, Guarda-roupas, Televisão\"\n    },\n    {\n      \"name\": \"Quarto e Escritório\",\n      \"value\": \"Mesa, Cadeira, Cama, Armário\"\n    },\n    {\n      \"name\": \"Cozinha\",\n      \"value\": \"Equipada\"\n    },\n    {\n      \"name\": \"Chuveiro\",\n      \"value\": \"Elétrico\"\n    },\n    {\n      \"name\": \"Sala de Estar\",\n      \"value\": \"Televisão, Sofá cama\"\n    },\n    {\n      \"name\": \"Sala de Jantar\",\n      \"value\": \"Mesa 4 pessoas, Aparador de Café\"\n    },\n    {\n      \"name\": \"Segurança\",\n      \"value\": \"Fechadura Eletrônica\"\n    }\n  ],\n  \"commodities\": [\n    { \"name\": \"Elevador Social\", \"has\": false },\n    { \"name\": \"Bicicletário\", \"has\": false },\n    { \"name\": \"Estacionamento\", \"has\": true },\n    { \"name\": \"Portaria 24 horas\", \"has\": false },\n    { \"name\": \"Piscina\", \"has\": true },\n    { \"name\": \"Churrasqueira\", \"has\": true },\n    { \"name\": \"Permitido Animais\", \"has\": true },\n    { \"name\": \"Detector de Fumaça\", \"has\": false }\n  ],\n  \"rules\": {\n    \"check_out\": \"12:00\",\n    \"check_in\": \"14:00\",\n    \"guests_quantity\": 4\n  },\n  \"contacts\": [\n    { \"contact_name\": \"Anfitriã\", \"phone\": \"(81)98974-4485\" },\n    { \"contact_name\": \"Portaria\", \"phone\": \"não informado\" },\n    { \"contact_name\": \"Polícia Militar\", \"phone\": \"190\" }\n  ],\n  \"property_security\": [\n    { \"name\": \"Senha Porta\", \"value\": \"123456\" },\n    { \"name\": \"Senha Bloco\", \"value\": \"v + 265546\" },\n    { \"name\": \"Senha Entrada\", \"value\": \"senha + 4445\" },\n    { \"name\": \"Detector de Fumação\", \"value\": \"não informado\" }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/apartments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"apartments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/apartments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"apartments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/apartments/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"apartments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/apartments/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"apartments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"guest_id\": 1,\n  \"apartment_id\": 1,\n  \"check_in_date\": \"2025-06-15\",\n  \"check_out_date\": \"2025-06-20\",\n  \"guests_quantity\": 2,\n  \"total_price\": 1050,\n  \"status\": \"pending\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bookings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/bookings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/bookings/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"Confirmed\",\n  \"guests_quantity\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bookings/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CancelBooking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"Cancelled\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bookings/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/bookings/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao.silva@example.com\",\n  \"password\": \"senha123456\",\n  \"phone\": \"11987654321\",\n  \"role\": \"ROLE_GUEST\",\n  \"guestData\": {\n    \"phone\": \"11987654321\",\n    \"document_number\": \"123456\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/sign-up",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignUp Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"João Silva ADMIN\",\n  \"email\": \"adm.joao.silva@example.com\",\n  \"password\": \"senha123456\",\n  \"phone\": \"11987654321\",\n  \"role\": \"ROLE_ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/sign-up",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.environment.set(\"token\", jsonData.token);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"joao.silva@example.com\",\n  \"password\": \"senha123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/sign-in",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    var jsonData = pm.response.json();",
+									"",
+									"    pm.environment.set(\"token\", jsonData.token);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"adm.joao.silva@example.com\",\n  \"password\": \"senha123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/sign-in",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Itinerary",
+			"item": [
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itinerary/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itinerary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itinerary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itinerary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Roteiro Praias de Cabedelo - 3 dias\",\r\n  \"description\": \"Explore as mais belas praias do litoral norte paraibano com este roteiro completo de 3 dias. Ideal para famílias e casais que buscam relaxamento e contato com a natureza.\",\r\n  \"location\": \"Cabedelo, Paraíba\",\r\n  \"duration_days\": 3,\r\n  \"estimated_cost\": 450,\r\n  \"difficulty_level\": \"Facil\",\r\n  \"activities\": [\r\n    {\r\n      \"day\": 1,\r\n      \"title\": \"Praia de Areia Dourada\",\r\n      \"description\": \"Comece o dia com um café da manhã no apartamento e depois caminhe até a Praia de Areia Dourada. Aproveite para relaxar, tomar banho de mar e almoçar em uma das barracas de praia.\",\r\n      \"start_time\": \"09:00\",\r\n      \"end_time\": \"14:00\",\r\n      \"location\": \"200m do apartamento\",\r\n      \"cost\": 80\r\n    },\r\n    {\r\n      \"day\": 1,\r\n      \"title\": \"Pôr do sol na Praia do Jacaré\",\r\n      \"description\": \"Não perca o famoso pôr do sol na Praia do Jacaré com o saxofonista Jurandy tocando o Bolero de Ravel. Uma experiência inesquecível!\",\r\n      \"start_time\": \"16:00\",\r\n      \"end_time\": \"18:30\",\r\n      \"location\": \"15 min de carro\",\r\n      \"cost\": 50\r\n    },\r\n    {\r\n      \"day\": 2,\r\n      \"title\": \"Passeio de barco para Ilha da Restinga\",\r\n      \"description\": \"Faça um passeio de barco até a Ilha da Restinga. Águas cristalinas perfeitas para mergulho e snorkeling.\",\r\n      \"start_time\": \"10:00\",\r\n      \"end_time\": \"15:00\",\r\n      \"location\": \"Ponto de embarque a 5 min de carro\",\r\n      \"cost\": 120\r\n    },\r\n    {\r\n      \"day\": 3,\r\n      \"title\": \"Fortaleza de Santa Catarina\",\r\n      \"description\": \"Visite a histórica Fortaleza de Santa Catarina e aprenda sobre a história da região. Depois, almoce em um dos restaurantes locais com vista para o mar.\",\r\n      \"start_time\": \"09:30\",\r\n      \"end_time\": \"13:00\",\r\n      \"location\": \"10 min de carro\",\r\n      \"cost\": 60\r\n    }\r\n  ],\r\n  \"image_url\": \"https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80\",\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/itinerary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itinerary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"is_active\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/itinerary/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itinerary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itinerary/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itinerary",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FAQ",
+			"item": [
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"question\": \"This is a question\",\r\n  \"answer\": \"This is the answer\",\r\n  \"category\": \"Commodities\",\r\n  \"order_position\": 10,\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/faq/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"faq",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/faq",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"faq"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"question\": \"Lorem Ipsum\",\r\n  \"answer\": \"Lorem Ipsum\",\r\n  \"category\": \"Booking\",\r\n  \"order_position\": 10,\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/faq",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"faq"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/faq/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"faq",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testimonials",
+			"item": [
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/testimonials/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"testimonials",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"guest_id\": 3,\r\n  \"author_name\": \"João Silva\",\r\n  \"author_location\": \"Natal, RN\",\r\n  \"content\": \"Minha estadia foi incrível! O apartamento era exatamente como nas fotos, super limpo e bem localizado. A anfitriã foi muito atenciosa e respondeu rapidamente a todas as minhas dúvidas. A vista para o mar é de tirar o fôlego e as comodidades do prédio são excelentes. Recomendo fortemente e com certeza voltarei em breve!\",\r\n  \"rating\": 5,\r\n  \"author_image_url\": \"https://randomuser.me/api/portraits/men/45.jpg\",\r\n  \"is_featured\": true,\r\n  \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/testimonials",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"testimonials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"is_active\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/testimonials/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"testimonials",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/testimonials/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"testimonials",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
