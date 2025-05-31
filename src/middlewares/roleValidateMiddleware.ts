@@ -10,7 +10,6 @@ export function requireRole(allowedRoles: UserRole[]) {
       return
     }
 
-    // Check if user has any of the required roles
     const hasRequiredRole = allowedRoles.some((role) => user.roles.includes(role))
 
     if (!hasRequiredRole) {
@@ -46,7 +45,7 @@ export function requireGuestProfile() {
     }
 
     // Check if user has ROLE_GUEST
-    if (!user.roles.includes(UserRole.ROLE_GUEST)) {
+    if (!user.role.includes(UserRole.ROLE_GUEST)) {
       return res.status(403).json({
         message: "Forbidden",
         details: "Guest profile required",

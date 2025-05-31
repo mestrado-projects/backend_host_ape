@@ -26,9 +26,9 @@ module.exports = {
         allowNull: true,
       },
       role: {
-        type: Sequelize.ENUM("guest", "admin"),
+        type: Sequelize.ENUM("ROLE_ADMIN", "ROLE_GUEST"),
         allowNull: false,
-        defaultValue: "guest",
+        defaultValue: "ROLE_GUEST",
       },
       is_active: {
         type: Sequelize.BOOLEAN,

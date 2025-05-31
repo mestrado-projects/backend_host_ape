@@ -13,7 +13,7 @@ export default class GetUserUseCase {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: user.roles,
+        role: user.role,
         is_active: user.is_active,
         last_login: user.last_login,
       }

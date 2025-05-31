@@ -32,7 +32,7 @@ export default class SignInUserUseCase {
           id: user.id,
           name: user.name,
           email: user.email,
-          roles: user.roles,
+          roles: user.role,
           guest: user.guest
             ? {
                 id: user.guest.id,
@@ -59,7 +59,7 @@ export default class SignInUserUseCase {
       {
         email: user.email,
         id: user.id,
-        roles: user.roles,
+        roles: user.role,
       },
       secretKey,
       { expiresIn: "24h" }

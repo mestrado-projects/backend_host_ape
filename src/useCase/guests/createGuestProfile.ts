@@ -12,7 +12,7 @@ export default class CreateGuestProfileUseCase {
         throw new Error(`User with id ${user_id} not found`)
       }
 
-      if (!user.roles.includes(UserRole.ROLE_GUEST)) {
+      if (!user.role.includes(UserRole.ROLE_GUEST)) {
         throw new Error(`User must have ROLE_GUEST to create guest profile`)
       }
 

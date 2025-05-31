@@ -25,7 +25,7 @@ function findById(id: number) {
 function findByRole(role: UserRole) {
   return Users.findAll({
     where: {
-      roles: { [require("sequelize").Op.contains]: [role] },
+      role: { [require("sequelize").Op.contains]: [role] },
       is_active: true,
     },
     attributes: { exclude: ["password"] },

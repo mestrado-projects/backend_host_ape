@@ -42,9 +42,9 @@ export class Users extends Model<InferAttributes<Users>, InferCreationAttributes
   @NotNull
   declare name: string
 
-  @Attribute(DataTypes.ARRAY(DataTypes.ENUM(...Object.values(UserRole))))
+  @Attribute(DataTypes.ENUM(...Object.values(UserRole)))
   @NotNull
-  declare roles: UserRole[]
+  declare role: UserRole
 
   @Attribute(DataTypes.BOOLEAN)
   @NotNull

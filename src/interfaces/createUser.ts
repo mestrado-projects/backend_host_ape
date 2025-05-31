@@ -4,6 +4,6 @@ export interface createUser {
   email: string
   password: string
   name: string
-  roles: UserRole[]
+  role: UserRole
   is_active?: boolean
 }

@@ -8,7 +8,7 @@ interface SignUpUserData {
   email: string
   password: string
   name: string
-  roles: UserRole[]
+  role: UserRole
   guestData?: createGuest
 }
 
@@ -31,7 +31,7 @@ export default class SignUpUserUseCase {
 
       const createdUser = await usersRepository.insert(userObject)
 
-      if (userData.roles.includes("ROLE_GUEST" as UserRole) && userData.guestData) {
+      if (userData.role.includes("ROLE_GUEST" as UserRole) && userData.guestData) {
         await guestsRepository.insert({
           user_id: createdUser.id,
           ...userData.guestData,
@@ -42,7 +42,7 @@ export default class SignUpUserUseCase {
         id: createdUser.id,
         email: createdUser.email,
         name: createdUser.name,
-        roles: createdUser.roles,
+        roles: createdUser.role,
       }
     } catch (error) {
       throw error
