@@ -14,6 +14,8 @@ import {
   Users,
   Bookings,
   Testimonials,
+  FAQ,
+  Itinerary,
 } from "../models/index.js";
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" });
@@ -37,6 +39,8 @@ const sequelize = new Sequelize({
     ApartmentsDetails,
     ApartmentsImages,
     Bookings,
+    FAQ,
+    Itinerary,
     Testimonials,
     Sessions,
     Guests,

@@ -6,19 +6,16 @@ import GetApartmentsRepository from "../../repositories/getApartmentsRepository.
 export default class CreateBookingUseCase {
   async execute(bookingData: createBooking) {
     try {
-      // Verificar se o guest existe
       const guest = await guestsRepository.findById(bookingData.guest_id)
       if (!guest) {
         throw new Error(`Guest with id ${bookingData.guest_id} not found`)
       }
 
-      // Verificar se o apartamento existe
       const apartment = await new GetApartmentsRepository().getApartmentById(bookingData.apartment_id)
       if (!apartment) {
         throw new Error(`Apartment with id ${bookingData.apartment_id} not found`)
       }
 
-      // Validar datas
       const checkIn = new Date(bookingData.check_in_date)
       const checkOut = new Date(bookingData.check_out_date)
 
